@@ -1,0 +1,65 @@
+.productPage {
+    display: flex;
+    justify-content: center;
+}
+
+.productPage__photo {
+    flex-grow: 1;
+}
+
+.productPage__productInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 2;
+    text-align: start;
+}
+
+.productPage__infoContent {
+
+}
+
+.productPage__productTitle {
+    text-transform: uppercase;
+}
+
+.productPage__price {
+    font-weight: bold;
+}
+
+.productPage__priceParcelas {
+    color: grey;
+    font-size: small;
+}
+
+.productPage__chooseSize {
+    color: grey;
+    font-size: small;
+    margin: 5px;
+}
+
+.productPage__sizes {
+    margin: 5px 10px;
+}
+
+.productPage__sizes button {
+    margin: 5px;
+}
+
+.btn--clothingSize {
+    color: black;
+    background-color: whitesmoke;    
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.btn--cart {
+    color: whitesmoke;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 50px;
+    font-weight: lighter;
+}
