@@ -5,6 +5,7 @@
 
 .productPage__photo {
     flex-grow: 1;
+    margin: 10px;
 }
 
 .productPage__productInfo {
@@ -13,6 +14,7 @@
     justify-content: flex-start;
     flex-grow: 2;
     text-align: start;
+    margin: 10px;
 }
 
 .productPage__infoContent {
@@ -20,26 +22,32 @@
 }
 
 .productPage__productTitle {
+    font-weight: bold;
     text-transform: uppercase;
+    margin-bottom: 2px;
 }
 
 .productPage__price {
+    margin-top: 0;
+    margin-bottom: 15px;
     font-weight: bold;
 }
 
 .productPage__priceParcelas {
     color: grey;
     font-size: small;
+    margin-left: 10px;
 }
 
 .productPage__chooseSize {
     color: grey;
-    font-size: small;
+    font-size: 12px;
     margin: 5px;
 }
 
 .productPage__sizes {
-    margin: 5px 10px;
+    margin-right: 0;
+    margin-bottom: 15px;
 }
 
 .productPage__sizes button {
@@ -48,7 +56,7 @@
 
 .btn--clothingSize {
     color: black;
-    background-color: whitesmoke;    
+    background-color: white;    
     border: 1px solid lightgrey;
     border-radius: 2px;
     padding: 5px 10px;
@@ -62,4 +70,5 @@
     border-radius: 5px;
     padding: 7px 50px;
     font-weight: lighter;
+    box-shadow: 0 0 20px 1px grey;
 }
