@@ -8,8 +8,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <BagProduct></BagProduct>
-        <BagProduct></BagProduct>
       </div>
       
     );
