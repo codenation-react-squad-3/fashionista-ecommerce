@@ -1,0 +1,110 @@
+.bagProduct {
+  background-color: #F9F9F9;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 10px;
+}
+
+.bagProduct__info {
+  display: flex;
+  justify-content: flex-start;
+  text-align: start;
+}
+
+.bagProduct__price {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: start;
+}
+
+.bagProduct__photo {
+  margin: 0 10px;
+  width: 40%;
+}
+
+.bagProduct__photo img {
+  width: 100%;
+  height: auto;
+}
+
+.bagProduct__photo button {
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  margin-top: 12px;
+  color: #f24949;
+  cursor: pointer;
+}
+
+.bagProduct__price {
+  min-width: 80px;
+  margin-left: 20px;
+}
+
+.bagProduct__counter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.bagProduct__counter button {
+  height: 28px;
+  width: 28px;
+  border: 1px solid #212429;
+  background-color: transparent;
+  color: #212429;
+  font-size: 21px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.bagProduct__counter button:hover {
+  background-color: #212429;
+  color: #ffffff;
+}
+
+.bagProduct__counter button:first-child {
+  margin-right: 12px;
+}
+
+.bagProduct__counter button:last-child {
+  margin-left: 12px;
+}
+
+p.small-gray-text {
+  font-weight: 400;
+  font-size: 13px;
+  color: #a7a7a7;
+}
+
+span.black-text {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+h2 {
+  font-size: 16px;
+  margin: 0;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+}
+
+h4 {
+  font-size: 13px;
+  font-weight: 400;
+  color: #a7a7a7;
+  margin: 0;
+  margin: 10px 0 0 0;
+}
