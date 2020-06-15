@@ -1,7 +1,7 @@
 import React from 'react'
 import './ProductPage.css'
 
-export default function ProductPage() {
+const ProductPage = () => {
     return (
         <article className="productPage">
             <section className="productPage__photo">
@@ -27,3 +27,5 @@ export default function ProductPage() {
         </article>
     )
 }
+
+export default ProductPage;
