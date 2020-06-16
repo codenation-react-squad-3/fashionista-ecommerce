@@ -1,12 +1,8 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-<<<<<<< HEAD
 
 import Routes from '../../routes';
 import Topbar from '../../components/Topbar/Topbar';
-=======
-import Routes from '../../routes';
->>>>>>> master
 
 import './App.css';
 
