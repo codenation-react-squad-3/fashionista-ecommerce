@@ -1,0 +1,65 @@
+.topbar {
+  backface-visibility: hidden;
+  left: 0;
+  padding: 8px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 9000;
+  background-color: white;
+}
+
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.topbar__logo {
+  display: inline-block;
+  height: 40px;
+}
+
+.topbar__logo img {
+  height: 100%;
+}
+
+.topbar__icons {
+  display: flex;
+}
+
+.topbar__icon {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 20px;
+  position: relative;
+}
+
+.topbar__icon:first-of-type {
+  margin-right: 5px;
+}
+
+.topbar__icon-counter {
+  height: 15px;
+  width: 15px;
+  background-color: #cf3838;
+  border-radius: 50%;
+  position: absolute;
+  color: white;
+  font-weight: 700;
+  font-size: 9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 4px;
+  right: 0;
+}
+
+@media screen and (min-width: 1279px) {
+  .topbar .container {
+    width: 1279px;
+  }
+}
