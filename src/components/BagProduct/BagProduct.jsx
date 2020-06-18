@@ -5,7 +5,7 @@ import { FiPlus, FiMinus } from 'react-icons/fi';
 
 const BagProduct = () => {
   return (
-    <article class="bagProduct">
+    <article className="bagProduct">
       <section className="bagProduct__info">
         <figure className="bagProduct__photo">
           <img src="https://viniciusvinna.netlify.app/assets/api-fashionista/20002605_615_catalog_1.jpg" alt=""/>
@@ -19,7 +19,7 @@ const BagProduct = () => {
           <h4>
             Tam: 40
           </h4>
-          <div class="bagProduct__counter">
+          <div className="bagProduct__counter">
             <button type="button"> <FiMinus /> </button>
             <p> 1 </p>
             <button type="button"> <FiPlus /> </button>
