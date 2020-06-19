@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { FiArrowLeft} from 'react-icons/fi'
+
 import './Modal.css'
 
 const Modal = () => {
@@ -8,7 +10,7 @@ const Modal = () => {
             <div className="modal__container">
                 <div className="modal__header">
                     <button className="modal__btn">
-                        <span> {"<-"} </span>
+                        <FiArrowLeft/>
                     </button>
                     <div className="modal__title">
                         <h1>Title goes here</h1>
