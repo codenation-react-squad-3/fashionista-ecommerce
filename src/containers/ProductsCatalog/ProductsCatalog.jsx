@@ -24,7 +24,7 @@ const ProductsCatalog = () => {
     <div className="product__grid">
 		{products.map(prod =>{
 			return (
-				<HomeProductCard {...prod}/>
+				<HomeProductCard {...prod} key={prod.image}/>
 			)
 		})}
       
