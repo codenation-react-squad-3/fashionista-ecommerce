@@ -2,34 +2,35 @@ import React, {useEffect} from 'react'
 import {useState} from 'react'
 import HomeProductCard from '../../components/ProductCard/HomeProductCard'
 import './ProductsCatalog.css'
+import {useSelector, useDispatch} from 'react-redux'
+import {fetchProductsService} from '../../store/actions/productsActions'
 
 const ProductsCatalog = () => {
-  const [products, setProducts] = useState([])
+	const {productsList, loading} = useSelector((state)=>state.products)
+	const dispatch = useDispatch();
 
-    useEffect(()=> {
-        async function getProducts() {
-            const productInfo = await fetch('https://5e9935925eabe7001681c856.mockapi.io/api/v1/catalog')
-                .then(res => res.json())
-            setProducts(productInfo)
-        }
-        getProducts();
-    }, [])
+	useEffect(()=> {
+		async function getProducts() {
+			dispatch(fetchProductsService())
+		}
+		getProducts();
+	}, [])
 
-  if(!products.length){
-    return (
-      <h1>Sem produtos para exibir</h1>
-    )
-  }
-  return (
-    <div className="product__grid">
-		{products.map(prod =>{
-			return (
-				<HomeProductCard {...prod} key={prod.image}/>
-			)
-		})}
-      
-    </div>
-  )
+  	if(loading){
+    	return (
+      	<h1>Sem produtos para exibir</h1>
+    	)
+  	}
+  	return (
+		<div className="product__grid">
+			{productsList.map(prod =>{
+				return (
+					<HomeProductCard {...prod} key={prod.image}/>
+				)
+			})}
+		
+		</div>
+	)
 }
 
 export default ProductsCatalog;
