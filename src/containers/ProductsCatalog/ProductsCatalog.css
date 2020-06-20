@@ -1,0 +1,13 @@
+@media screen and (min-width: 992px){
+    .products__grid {
+        justify-content: center;
+    }
+}
+.product__grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-left: -.25rem;
+    margin-right: -.25rem;
+    background-color: #f9f9f9;
+}
