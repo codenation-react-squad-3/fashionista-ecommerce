@@ -6,22 +6,23 @@
   top: 0;
   z-index: 9000;
   background-color: white;
-}
 
-.topbar .container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0 auto;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 4px;
+  }
 }
 
 .topbar__logo {
   display: inline-block;
   height: 40px;
-}
 
-.topbar__logo img {
-  height: 100%;
+  img {
+    height: 100%;
+  }
 }
 
 .topbar__icons {
@@ -36,10 +37,10 @@
   outline: none;
   font-size: 20px;
   position: relative;
-}
 
-.topbar__icon:first-of-type {
-  margin-right: 5px;
+  &:first-of-type {
+    margin-right: 5px;
+  }
 }
 
 .topbar__icon-counter {
@@ -59,7 +60,9 @@
 }
 
 @media screen and (min-width: 1279px) {
-  .topbar .container {
-    width: 1279px;
-  }
+  .topbar {
+    .container {
+      width: 1279px;
+    }
+  } 
 }

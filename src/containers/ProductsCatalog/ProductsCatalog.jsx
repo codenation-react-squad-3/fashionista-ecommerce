@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react'
-import {useState} from 'react'
-import HomeProductCard from '../../components/ProductCard/HomeProductCard'
-import './ProductsCatalog.css'
 import {useSelector, useDispatch} from 'react-redux'
+
+import HomeProductCard from '../../components/ProductCard/HomeProductCard'
 import {fetchProductsService} from '../../store/actions/productsActions'
+import './ProductsCatalog.scss'
+
+import loadingGif from '../../assets/images/loading-spinner.gif';
 
 const ProductsCatalog = () => {
 	const {productsList, loading} = useSelector((state)=>state.products)
@@ -18,18 +20,26 @@ const ProductsCatalog = () => {
 
   	if(loading){
     	return (
-      	<h1>Sem produtos para exibir</h1>
+				<div className="loading">
+					<img src={loadingGif} alt="loading..." />
+				</div>
     	)
   	}
   	return (
-		<div className="product__grid">
-			{productsList.map(prod =>{
-				return (
-					<HomeProductCard {...prod} key={prod.image}/>
-				)
-			})}
-		
-		</div>
+			<section className="productsCatalog">
+				<div className="productsCatalog__container">
+				<div className="productsCatalog__counter"> 22 itens </div>
+
+				<div className="product__grid">
+					{
+						productsList.map(prod =>{
+							return (
+								<HomeProductCard {...prod} key={prod.image}/>
+							)
+					})}
+				</div>
+			</div>
+			</section>
 	)
 }
 

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {useState} from 'react'
 import useDebounce from '../../utils/useDebounce';
-import './SearchBar.css'
+import './SearchBar.scss'
 
 const SearchBar = (props) => {
     const [searchQuery, setSearchQuery] = useState('')

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { FiArrowLeft} from 'react-icons/fi'
 
-import './Modal.css'
+import './Modal.scss'
 
 const Modal = () => {
     return (

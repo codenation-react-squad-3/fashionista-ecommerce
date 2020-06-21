@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import { FiSearch, FiShoppingBag } from 'react-icons/fi';
 
 import logo from '../../assets/images/fashionista.svg';
-import './Topbar.css';
+import './Topbar.scss';
 
 const Topbar = () => (
   <header className="topbar">
