@@ -6,6 +6,11 @@
   position: relative;
   text-align: center;
   width: 25%;
+
+  &:hover {
+    background-color: rgba(201, 196, 196, .1);
+    background-clip: content-box;
+  }
 }
 
 a {
@@ -17,6 +22,12 @@ a {
   overflow: hidden;
   width: 100%;
   position: relative;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+
 }
 
 .product__discount{
@@ -32,9 +43,9 @@ a {
 
 .product__title{
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   margin-top: 1rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0;
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -44,6 +55,7 @@ a {
 
 .product__price{
   font-size: 14px;
+  font-weight: 500;
 }
 
 .product__price--regular{
