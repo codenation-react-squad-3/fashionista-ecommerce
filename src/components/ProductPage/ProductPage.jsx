@@ -1,5 +1,5 @@
 import React from 'react'
-import './ProductPage.css'
+import './ProductPage.scss'
 
 const ProductPage = () => {
     return (

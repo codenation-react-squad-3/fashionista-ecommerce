@@ -1,5 +1,5 @@
 import React from 'react';
-import './BagProduct.css' 
+import './BagProduct.scss' 
 import { FiPlus, FiMinus } from 'react-icons/fi';
 
 
