@@ -1,21 +1,20 @@
 import React, {useEffect} from 'react'
 import {useState} from 'react'
 import useDebounce from '../../utils/useDebounce';
+import {useSelector} from 'react-redux'
 import './SearchBar.scss'
 
 const SearchBar = (props) => {
     const [searchQuery, setSearchQuery] = useState('')
     const [searchProductResult, setSearchProductResult] = useState([])
     const debouncedTerm = useDebounce(searchQuery, 500)
-    
-    // PRODUCTLIST FICTICIO
-    const productList = [{name: 'camila'}, {name: 'joana'}, {name: 'maira'}, {name: 'maiara'}]
+    const {productsList} = useSelector((state)=>state.products)    
     let results
 
     useEffect(()=> {
         function search() {
             if(debouncedTerm){
-                const searchResult = productList.filter(product => product.name.includes(debouncedTerm))
+                const searchResult = productsList.filter(product => product.name.includes(debouncedTerm.toUpperCase()))
                 setSearchProductResult(searchResult)
             } else {setSearchProductResult([])}
         }
@@ -24,7 +23,7 @@ const SearchBar = (props) => {
 
     if(searchProductResult.length){
         results = searchProductResult.map(item => {
-            return <span key={item.name}>{item.name}</span>
+            return <span key={item.code_color}>{item.name}</span>
         })
     } else { results = (<span className="search__result search__result--empty">Nenhum item encontrado :\</span>)}
 
