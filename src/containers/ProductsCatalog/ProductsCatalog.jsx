@@ -16,7 +16,7 @@ const ProductsCatalog = () => {
 			dispatch(fetchProductsService())
 		}
 		getProducts();
-	}, [])
+	})
 
   	if(loading){
     	return (
@@ -26,20 +26,21 @@ const ProductsCatalog = () => {
     	)
   	}
   	return (
-			<section className="productsCatalog">
-				<div className="productsCatalog__container">
-				<div className="productsCatalog__counter"> 22 itens </div>
+		<section className="productsCatalog">
+			<div className="productsCatalog__container">
+			<div className="productsCatalog__counter"> {productsList.length} itens </div>
 
-				<div className="product__grid">
-					{
-						productsList.map(prod =>{
-							return (
-								<HomeProductCard {...prod} key={prod.image}/>
-							)
-					})}
+			<div className="product__grid">
+				{
+					productsList.map(prod =>{
+						return (
+							<HomeProductCard {...prod} key={prod.code_color}/>
+						)
+					})
+				}
 				</div>
 			</div>
-			</section>
+		</section>
 	)
 }
 

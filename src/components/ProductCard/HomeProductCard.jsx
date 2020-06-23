@@ -2,25 +2,21 @@ import React from 'react'
 import './HomeProductCard.scss'
 
 const HomeProductCard = (props) => {
-  let productImage;
-  let productDiscount;
-  let productRegularPrice;
-
-  productImage = props.image
+  const productImage = props.image
     ? <img src={props.image} alt="" className="product__image"/>
     : <img src="https://via.placeholder.com/470x594/FFFFFF/?text=Imagem+Indisponível" alt="" className="product__image"/>
 
-    productRegularPrice = props.discount_percentage
-      ? <span className="product__price product__price--regular">{props.regular_price}</span>
-      : <span></span>
+  const productRegularPrice = props.discount_percentage
+    ? <span className="product__price product__price--regular">{props.regular_price}</span>
+    : <></>
       
-    productDiscount = props.discount_percentage
-      ? <span className="product__discount">-{props.discount_percentage}</span>
-      : <span></span>  
+  const productDiscount = props.discount_percentage
+    ? <span className="product__discount">-{props.discount_percentage}</span>
+    : <></>
 
   return (
     <div className="productCard__container">
-      <a href={'/product/' + props.style}>
+      <a href={'/product/' + props.code_color}>
         <div>
           {productImage}
           {productDiscount}
