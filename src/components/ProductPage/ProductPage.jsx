@@ -21,8 +21,8 @@ const ProductPage = (product) => {
       </figure>
       <section className="productPage__productInfo">
         <h3 className="productPage__productTitle"> { product.name } </h3>
-        <p className="productPage__price">R$ 99,99
-            <span className="productPage__priceParcelas">em até 99x de R$1,01</span>
+        <p className="productPage__price">{product.regular_price}
+            <span className="productPage__priceParcelas">{product.installments}</span>
         </p>
         <div>
             <p className="productPage__chooseSize">Escolha o tamanho</p>

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Routes from '../src/routes';
 import Topbar from '../src/components/Topbar/Topbar';
+import SearchBar from '../src/components/SearchBar/SearchBar'
+import BagProduct from '../src/components/BagProduct/BagProduct'
 import { BrowserRouter } from 'react-router-dom';
 import store from './store/index'
 
@@ -13,6 +15,8 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <Topbar />
+            <SearchBar />
+            <BagProduct />
             <Routes />
         </BrowserRouter>
     </Provider>

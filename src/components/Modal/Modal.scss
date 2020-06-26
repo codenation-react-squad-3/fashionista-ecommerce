@@ -1,4 +1,9 @@
+$headersize: 4em;
+$modalshow: block;
+$modalhide: none;
+
 .modal {
+    display: $modalhide;
     z-index: 1;
     width: 100%;
     height: 100%;
@@ -19,7 +24,7 @@
     display: grid;
     background-color: white;
     position: absolute;
-    height: 4em;
+    height: $headersize;
     width: 100%;
     box-shadow: 2px 3px 10px lightgrey;
 }
@@ -49,3 +54,6 @@
     cursor: pointer;
 }
 
+.modal__content {
+    margin-top: $headersize;
+}
