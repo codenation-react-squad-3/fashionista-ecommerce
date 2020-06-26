@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react'
-import {useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import Modal from '../Modal/Modal'
 import useDebounce from '../../utils/useDebounce';
 import './SearchBar.scss'
 
@@ -29,14 +29,14 @@ const SearchBar = (props) => {
     } else { results = (<span className="search__result search__result--empty">Nenhum item encontrado :\</span>)}
 
     return (
-        <div>
+        <Modal title="Pesquisa">
             <div className="search__area">
                 <input type="text" className="search__input" placeholder="Buscar por produto..." onChange={text => setSearchQuery(text.target.value)}></input>
             </div>
             <div>
                 {results}
             </div>
-        </div>
+        </Modal>
     )
 }
 
