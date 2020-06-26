@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 import './HomeProductCard.scss'
 
 const HomeProductCard = (props) => {
@@ -20,7 +21,7 @@ const HomeProductCard = (props) => {
 
   return (
     <div className="productCard__container">
-      <a href={'/product/' + props.style}>
+      <Link to={'/product/' + props.code_color}>
         <div>
           {productImage}
           {productDiscount}
@@ -30,7 +31,7 @@ const HomeProductCard = (props) => {
           {productRegularPrice}
           <span className="product__price product__price--actual"> {props.actual_price} </span>
         </div>
-      </a>
+      </Link>
     </div>
   )
 }

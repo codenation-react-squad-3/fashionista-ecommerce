@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+
+.productPage__container {
+  background-color: $light-gray;
+  height: calc(100vh - 56px);
+}
+
+.productPage__content {
+  padding-top: 10px;
+}
+
+@media screen and (min-width: 1279px) {
+  .productPage__content {
+    width: 1279px;
+    margin: 0 auto;
+  }
+}

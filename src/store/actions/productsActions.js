@@ -4,7 +4,6 @@ const PRODUCT = {
    GET_PRODUCTS_ERROR: 'GET_PRODUCTS_ERROR'
 }
 
-
 const fetchStart = () => ({
    type: PRODUCT.GET_PRODUCTS_START
 })

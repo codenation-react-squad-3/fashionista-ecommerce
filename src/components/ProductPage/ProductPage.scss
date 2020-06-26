@@ -1,20 +1,23 @@
 .productPage {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
 }
 
 .productPage__photo {
-    flex-grow: 1;
-    margin: 10px;
+  margin: 10px;
+
+  img {
+    width: 100%;
+  }
 }
 
 .productPage__productInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    flex-grow: 2;
-    text-align: start;
-    margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: start;
+  margin: 10px;
 }
 
 .productPage__infoContent {
@@ -22,53 +25,84 @@
 }
 
 .productPage__productTitle {
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  margin-top: 0;
+  font-size: 1.4rem;
 }
 
 .productPage__price {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: bold;
 }
 
 .productPage__priceParcelas {
-    color: grey;
-    font-size: small;
-    margin-left: 10px;
+  color: grey;
+  font-size: small;
+  margin-left: 10px;
 }
 
 .productPage__chooseSize {
-    color: grey;
-    font-size: 12px;
-    margin: 5px;
+  color: grey;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 5px;
 }
 
 .productPage__sizes {
-    margin-right: 0;
-    margin-bottom: 15px;
+  margin-right: 0;
+  margin-bottom: 15px;
 }
 
 .productPage__sizes button {
-    margin: 5px;
+  margin: 5px;
 }
 
 .btn--clothingSize {
-    color: black;
-    background-color: white;    
-    border: 1px solid lightgrey;
-    border-radius: 2px;
-    padding: 5px 10px;
-    font-weight: bold;
+  color: black;
+  background-color: white;    
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding: 6px 10px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+    background-color:  rgba(201, 196, 196, .1);
+  }
+
+  &:focus {
+    background-color: black;
+    color: white;
+  }
+
 }
 
 .btn--cart {
-    color: whitesmoke;
-    background-color: black;
-    border: none;
-    border-radius: 5px;
-    padding: 7px 50px;
-    font-weight: lighter;
-    box-shadow: 0 0 20px 1px grey;
+  color: whitesmoke;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 50px;
+  font-weight: lighter;
+  box-shadow: 0 0 20px 1px grey;
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 600px) {
+  .productPage {
+    flex-direction: row;
+    justify-content: left;
+  }
+
+  .btn--cart {
+    width: auto;
+  }
 }
