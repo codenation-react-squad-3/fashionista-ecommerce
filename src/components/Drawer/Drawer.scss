@@ -1,11 +1,9 @@
-$headersize: 4em;
-$modalshow: block;
-$modalhide: none;
+$headersize: 56px;
 
-.Drawer__Container{
+.drawer__container{
     width: 25em;
     min-height: 100vh;
-    z-index: 9000;
+    z-index: 90000;
     right: 0;
     top: 0;
     position:fixed;
@@ -16,7 +14,7 @@ $modalhide: none;
     backface-visibility: hidden;
 }
 
-.Drawer__Container--isOpen{
+.drawer__container--is-open{
     transform: translateZ(0);
     box-shadow: 0 19px 38px rgba(0,0,0,.3), 0 15px 12px rgba(0,0,0,.22);
 }
@@ -28,26 +26,20 @@ $modalhide: none;
     transition-timing-function: cubic-bezier(.4,0,.2,1);
 }
 
-.modal {
-    display: $modalshow;
-    z-index: 1;
-    width: 100%;
+.drawer {
+    background: radial-gradient(circle, rgba(112,112,112,0.75) 0%, rgba(0,0,0,0.75) 96%);
     height: 100%;
+    z-index: 9000;
+    top: 0;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.6);
+    transition: all 1.3s;
+    width: 100%;
+
 }
 
-.modal__container {
-    width: 30em;
-    height: 100vh;
-    position: absolute;
-    right: 0;
-    background-color: #f9f9f9;
-    box-shadow: -3px 0 10px #444;
-}
-
-.modal__header {
-    display: grid;
+.drawer__header {
+    display: flex;
+    align-items: center;
     background-color: white;
     position: absolute;
     height: $headersize;
@@ -55,31 +47,22 @@ $modalhide: none;
     box-shadow: 2px 3px 10px lightgrey;
 }
 
-.modal__title {
-    display: flex;
-    align-items: center;
+.drawer__title {
     font-weight: bold;
-    font-size: 0.6em;
+    font-size: 0.5em;
     color: black;
-    grid-row: 1;
-    grid-column: 2 / 10;
 }   
 
-.modal__title h1 {
-    text-align: left;
-    vertical-align: middle;
-}
-
-.modal__btn {
+.close__btn {
+    display: flex;
+    margin: 0 15px;
     font-weight: bold;
-    font-size: 1em;
-    grid-row: 1;
-    grid-column: 1;
+    font-size: 1.5em;
     border: none;
     background-color: white;
     cursor: pointer;
 }
 
-.modal__content {
+.drawer__content {
     margin-top: $headersize;
 }
