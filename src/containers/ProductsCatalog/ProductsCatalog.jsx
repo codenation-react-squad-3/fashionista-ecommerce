@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-
 import HomeProductCard from '../../components/ProductCard/HomeProductCard'
 import {fetchProductsService} from '../../store/actions/productsActions'
 import './ProductsCatalog.scss'
@@ -8,7 +7,7 @@ import './ProductsCatalog.scss'
 import loadingGif from '../../assets/images/loading-spinner.gif';
 
 const ProductsCatalog = () => {
-	const {productsList, loading} = useSelector((state)=>state.products)
+	const {productsList, loading, error} = useSelector((state)=>state.products)
 	const dispatch = useDispatch();
 
 	useEffect(()=> {
@@ -18,7 +17,14 @@ const ProductsCatalog = () => {
 		getProducts();
 	}, [])
 
-  	if(loading){
+	if (error) {
+		return (
+			<div className="error">
+				=/  Oops, ocorreu um erro no processamento dos produtos.
+			</div>
+		)
+	}
+  	else if(loading){
     	return (
 				<div className="loading">
 					<img src={loadingGif} alt="loading..." />

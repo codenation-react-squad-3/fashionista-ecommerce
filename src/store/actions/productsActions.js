@@ -14,15 +14,17 @@ const fetchDone = (products) => ({
    loading: false
 })
 
-const fetchError = () => {
-   
-}
+const fetchError = () => ({
+   type: PRODUCT.GET_PRODUCTS_ERROR,
+   error: true
+})
 
 const fetchProductsService = () => async dispatch => {
    dispatch(fetchStart());
    await fetch('https://5e9935925eabe7001681c856.mockapi.io/api/v1/catalog')
       .then(res => res.json())
       .then(res => dispatch(fetchDone(res)))
+      .catch(() => dispatch(fetchError()))
 }
 
 export {fetchProductsService, PRODUCT}

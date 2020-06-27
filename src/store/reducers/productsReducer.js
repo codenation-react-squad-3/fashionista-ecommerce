@@ -14,8 +14,14 @@ const products = (state = initialState, action) => {
         loading: action.loading
       }
 
-    default:
-      return state;
+      case PRODUCT.GET_PRODUCTS_ERROR:
+        return {
+          ...state,
+          productsList: [],
+          error: action.error
+        }
+      default:
+        return state;
   }
 }
 
