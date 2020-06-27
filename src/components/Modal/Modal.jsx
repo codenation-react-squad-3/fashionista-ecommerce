@@ -4,24 +4,34 @@ import { FiArrowLeft} from 'react-icons/fi'
 
 import './Modal.scss'
 
-const Modal = ({children, title}) => {
-    return (
-        <div className="modal">
-            <div className="modal__container">
-                <div className="modal__header">
-                    <button className="modal__btn">
-                        <FiArrowLeft/>
-                    </button>
-                    <div className="modal__title">
-                        <h1>{title}</h1>
-                    </div>
-                </div>
-                <div className="modal__content">
-                    {children}
-                </div>
-            </div>
-        </div>
-    )
+const Modal = ({ isShowing, hide }) => {
+	const app = document.querySelector('body')
+
+	if (isShowing) {
+		app.setAttribute('class', 'app--is-drawer-visible')
+	}
+	//isShowing ? app.setAttribute('class', 'app--is-drawer-visible') : '';
+
+	return (
+		<div className={`Drawer__Container ${isShowing && "Drawer__Container--isOpen"}`}>
+			<div className="DrawerContents__Container">
+				<div className="modal__header">
+					<button className="modal__btn" onClick={hide}>
+							<FiArrowLeft/>
+					</button>
+					<div className="modal__title">
+							<h1>conteudo do seu modal</h1>
+					</div>	
+				</div>
+			</div>
+		</div>
+	)
 }
+
+
+/*<button className="modal__btn" onClick={hide}>
+<FiArrowLeft/>
+</button>
+*/
 
 export default Modal;

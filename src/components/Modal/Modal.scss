@@ -2,8 +2,34 @@ $headersize: 4em;
 $modalshow: block;
 $modalhide: none;
 
+.Drawer__Container{
+    width: 25em;
+    min-height: 100vh;
+    z-index: 9000;
+    right: 0;
+    top: 0;
+    position:fixed;
+    transition: all 0.3s ease-in-out;
+    transform: translate(25em);
+    background-color: #fff;
+    display: flex;
+    backface-visibility: hidden;
+}
+
+.Drawer__Container--isOpen{
+    transform: translateZ(0);
+    box-shadow: 0 19px 38px rgba(0,0,0,.3), 0 15px 12px rgba(0,0,0,.22);
+}
+
+.app--is-drawer-visible{
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow-y: hidden;
+    transition: opacity 225ms;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+
 .modal {
-    display: $modalhide;
+    display: $modalshow;
     z-index: 1;
     width: 100%;
     height: 100%;
