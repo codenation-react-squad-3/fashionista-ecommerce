@@ -30,6 +30,20 @@
   justify-content: center;
 }
 
+.error {
+  margin: auto;
+  margin-top: 90px;
+  padding: 30px 30px;
+  width: 60vw;
+  border-radius: 10px;
+  font-weight: 900;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (min-width: 1279px) {
   .productsCatalog__container {
     width: 1279px;
