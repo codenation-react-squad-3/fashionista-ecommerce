@@ -7,13 +7,10 @@ import './SearchAndBagProductContainer.scss';
 import SearchBar from '../../components/SearchBar/SearchBar'
 import BagProduct from '../../components/BagProduct/BagProduct';
 
-const SearchAndBagProductContainer = () => {
+const SearchAndBagProductContainer = ({isSearch}) => {
   const { cartList } = useSelector(state => state.cartProducts);
-  const [childData, setChildData] = useState([]);
+  const { productsList } = useSelector(state => state.products);    
   const [cartListUpdated, setCartListUpdated] = useState([]);
-
-  // Vou pegar da store quando estiver disponível
-  const isSearch = true;
 
   useEffect(() => {
     const updateCartList = () => {
@@ -28,7 +25,7 @@ const SearchAndBagProductContainer = () => {
         {
           isSearch 
             ?
-              <SearchBar passChildData={setChildData}/>
+              <SearchBar productsList={productsList}/>
             : <div> 
               {
                 cartListUpdated.length > 0

@@ -35,7 +35,7 @@ const Topbar = () => {
         hide={isSearch ? setIsSearch : setIsCart}
         title = {isSearch ? 'Buscar Produtos' : `Sacola (${cartCount})` }
       >
-        <SearchAndBagProductContainer/>
+        <SearchAndBagProductContainer isSearch={isSearch}/>
       </Drawer>
     </React.Fragment>
   );

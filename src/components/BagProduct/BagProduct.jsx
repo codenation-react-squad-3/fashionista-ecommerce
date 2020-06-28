@@ -7,8 +7,6 @@ import './BagProduct.scss'
 import { cartAddProduct, cartRemoveProduct } from '../../store/actions/cartActions'
 
 const BagProduct = ({product, isSearch, size}) => {
-
-  console.log(isSearch)
   const dispatch = useDispatch();
 
   return (
