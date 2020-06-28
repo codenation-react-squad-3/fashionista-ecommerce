@@ -4,12 +4,10 @@ import BagProduct from '../BagProduct/BagProduct'
 import {useSelector} from 'react-redux'
 import './SearchBar.scss'
 
-const SearchBar = (props) => {
+const SearchBar = ({productsList}) => {
     const [searchQuery, setSearchQuery] = useState('')
     const [searchProductResult, setSearchProductResult] = useState([])
     const debouncedTerm = useDebounce(searchQuery, 50)
-
-    const { productsList } = useSelector(state => state.products);    
 
     useEffect(() => {
       const search = () => {
