@@ -3,6 +3,8 @@ import {useSelector, useDispatch} from 'react-redux'
 import HomeProductCard from '../../components/ProductCard/HomeProductCard'
 import {fetchProductsService} from '../../store/actions/productsActions'
 import './ProductsCatalog.scss'
+import SearchAndBagProductContainer from '../SearchAndBagProductContainer/SearchAndBagProductContainer';
+
 
 import loadingGif from '../../assets/images/loading-spinner.gif';
 

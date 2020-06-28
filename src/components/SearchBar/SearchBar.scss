@@ -1,3 +1,7 @@
+.search__container {
+    width: 100%;
+}
+
 .search__area{
     background: #f6f6f6;
     box-shadow: 0 0.2rem 2rem 0 rgba(0,0,0,.1);
@@ -13,10 +17,35 @@
     border: none;
     box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
     color: #212529;
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-weight: 600;
     height: auto;
     outline: none;
     padding: 1rem;
     width: 100%;
 }
+
+.search__area, .search__input {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.search__content {
+    overflow-y: auto;
+    height: calc(100vh - 150px);
+}
+
+.search__result--empty {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+
+    div {
+        color: grey;
+        font-weight: 500;
+        display: flex;
+        align-self: center;
+    }
+}
+

@@ -1,7 +1,7 @@
 $headersize: 56px;
 
 .drawer__container{
-    width: 25em;
+    width: 100%;
     min-height: 100vh;
     z-index: 90000;
     right: 0;
@@ -65,4 +65,11 @@ $headersize: 56px;
 
 .drawer__content {
     margin-top: $headersize;
+    width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+    .drawer__container {
+        width: 375px;
+    }
 }

@@ -10,7 +10,7 @@ const products = (state = initialState, action) => {
     case PRODUCT.GET_PRODUCTS_DONE:
       return {
         ...state, 
-        productsList: [...action.products],
+        productsList: [...action.products.filter(product => product.id !== 'NaN')],
         loading: action.loading
       }
 

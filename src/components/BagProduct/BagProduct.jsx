@@ -6,25 +6,34 @@ import './BagProduct.scss'
 
 import { cartAddProduct, cartRemoveProduct } from '../../store/actions/cartActions'
 
-const BagProduct = ({ product = {}, isSearch, size }) => {
+const BagProduct = ({product, isSearch, size}) => {
+
+  console.log(isSearch)
   const dispatch = useDispatch();
 
   return (
     <article className="bagProduct">
       <section className="bagProduct__info">
         <figure className="bagProduct__photo">
-          <img src="https://viniciusvinna.netlify.app/assets/api-fashionista/20002605_615_catalog_1.jpg" alt="" />
-          <button type="button" className="bagProduct__remove"> Remover item </button>
+          <img src={ product.image } alt="" />
+          { isSearch ? <span></span> : <button type="button"> Remover item </button> }
         </figure>
 
         <div>
           <h3>{product.name}</h3>
-          <h4>Tam: {size}</h4>
-          <div className="bagProduct__counter">
-            <button type="button" onClick={() => dispatch(cartAddProduct(product))} > <FiMinus /> </button>
-            <p> 1 </p>
-            <button type="button" onClick={() => dispatch(cartRemoveProduct(product))}> <FiPlus /> </button>
-          </div>
+
+          {
+            isSearch 
+              ? <span></span> 
+              : <div> 
+                  <h4>Tam: {size}</h4>
+                  <div className="bagProduct__counter">
+                    <button type="button" onClick={() => dispatch(cartAddProduct(product))} > <FiMinus /> </button>
+                    <p> 1 </p>
+                    <button type="button" onClick={() => dispatch(cartRemoveProduct(product))}> <FiPlus /> </button>
+                  </div>
+                </div>
+          }
         </div>
       </section>
 

@@ -1,0 +1,14 @@
+.searchAndBagProduct__container {
+  height: 95vh;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.searchAndBagProduct__emptyBag {
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  color: grey;
+  font-weight: 500;
+}

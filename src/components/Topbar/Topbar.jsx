@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import Drawer from '../Drawer/Drawer'
 import logo from '../../assets/images/fashionista.svg';
 import './Topbar.scss';
+import SearchAndBagProductContainer from '../../containers/SearchAndBagProductContainer/SearchAndBagProductContainer';
 
 const Topbar = () => {
   const { cartCount } = useSelector(state => state.cartProducts);
@@ -34,6 +35,7 @@ const Topbar = () => {
         hide={isSearch ? setIsSearch : setIsCart}
         title = {isSearch ? 'Buscar Produtos' : `Sacola (${cartCount})` }
       >
+        <SearchAndBagProductContainer/>
       </Drawer>
     </React.Fragment>
   );
