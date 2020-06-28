@@ -15,8 +15,6 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <Topbar />
-            <SearchBar />
-            <BagProduct />
             <Routes />
         </BrowserRouter>
     </Provider>

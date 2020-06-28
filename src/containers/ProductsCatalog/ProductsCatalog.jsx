@@ -40,7 +40,7 @@ const ProductsCatalog = () => {
 					{
 						productsList.map(prod =>{
 							return (
-								<HomeProductCard {...prod} key={prod.image}/>
+								<HomeProductCard {...prod} key={prod.code_color}/>
 							)
 					})}
 				</div>
