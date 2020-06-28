@@ -1,11 +1,16 @@
 import React from 'react';
+import { useDispatch } from 'react-redux'
+
 import Modal from '../Modal/Modal'
-import './BagProduct.scss'
 import { FiPlus, FiMinus } from 'react-icons/fi';
 
+import './BagProduct.scss'
 
+import { cartAddProduct, cartRemoveProduct } from '../../store/actions/cartActions'
 
-const BagProduct = () => {
+const BagProduct = ({ product = {}, isSearch, size }) => {
+  const dispatch = useDispatch();
+
   return (
     <Modal title="Carrinho">
       <article className="bagProduct">
@@ -16,27 +21,19 @@ const BagProduct = () => {
           </figure>
 
           <div>
-            <h3>
-              CALÇA CLASSIC PRINT
-          </h3>
-            <h4>
-              Tam: 40
-          </h4>
+            <h3>{product.name}</h3>
+            <h4>Tam: {size}</h4>
             <div className="bagProduct__counter">
-              <button type="button"> <FiMinus /> </button>
+              <button type="button" onClick={() => dispatch(cartAddProduct(product))} > <FiMinus /> </button>
               <p> 1 </p>
-              <button type="button"> <FiPlus /> </button>
+              <button type="button" onClick={() => dispatch(cartRemoveProduct(product))}> <FiPlus /> </button>
             </div>
           </div>
         </section>
 
         <section className="bagProduct__price">
-          <h3>
-            R$ 159,90
-        </h3>
-          <h4>
-            3x R$ 53,30
-        </h4>
+          <h3>{product.regular_price}</h3>
+          <h4>{product.installments}</h4>
         </section>
       </article>
     </Modal>
