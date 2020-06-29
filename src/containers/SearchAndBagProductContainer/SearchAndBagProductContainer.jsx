@@ -32,7 +32,8 @@ const SearchAndBagProductContainer = ({isSearch}) => {
                 ?
                 cartListUpdated.map((product, index) =>{
                   return (
-                    <BagProduct product={{ ...product}} isSearch={false} key={index} />
+                    <BagProduct 
+                      product={{ ...product}} isSearch={false} key={index} />
                   )
                 })
 

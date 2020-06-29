@@ -60,25 +60,27 @@
   margin: 5px;
 }
 
-.btn--clothingSize {
-  color: black;
-  background-color: white;    
+.btn--clothingSize {  
   border: 1px solid lightgrey;
   border-radius: 5px;
   padding: 6px 10px;
   font-weight: bold;
-  cursor: pointer;
 
-  &:hover {
-    opacity: 0.7;
-    background-color:  rgba(201, 196, 196, .1);
+  &:not([disabled]) {
+    color: black;
+    background-color: white;  
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+      background-color:  rgba(201, 196, 196, .1);
+    }
+
+    &:focus {
+      background-color: black;
+      color: white;
+    }
   }
-
-  &:focus {
-    background-color: black;
-    color: white;
-  }
-
 }
 
 .btn--cart {
@@ -96,13 +98,17 @@
   font-weight: 500;
 }
 
+.productPage__sizeRequired {
+  margin-top: 20px;
+  color: red;
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+}
+
 @media screen and (min-width: 600px) {
   .productPage {
     flex-direction: row;
     justify-content: left;
-  }
-
-  .btn--cart {
-    width: auto;
   }
 }
