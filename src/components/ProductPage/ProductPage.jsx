@@ -1,17 +1,22 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState } from 'react';
+import { useDispatch} from 'react-redux'
 
-import { cartAddProduct, cartRemoveProduct } from '../../store/actions/cartActions' 
+import { cartAddProduct } from '../../store/actions/cartActions' 
 import './ProductPage.scss'
 const ProductPage = (product) => {
   const dispatch = useDispatch();
+  const [isSizeChosen, setIsSizeChosen] = useState();
+  const [chosenSize, setChosenSize] = useState({size: '', sku: ''});
 
-  const addProductToBag = () => {
-    dispatch(cartAddProduct(product));
+  const changeChosenSize = (sizeObject) => {
+    setIsSizeChosen(true);
+    setChosenSize({...sizeObject});
   }
 
-  const removeProduct = () => {
-    dispatch(cartRemoveProduct(product));
+  const addProductToBag = () => {
+    isSizeChosen
+      ? dispatch(cartAddProduct(product, chosenSize))
+      : setIsSizeChosen(false)
   }
 
   return (
@@ -27,12 +32,22 @@ const ProductPage = (product) => {
         <div>
             <p className="productPage__chooseSize">Escolha o tamanho</p>
             <div className="productPage__sizes">
-                <button className="btn--clothingSize">P</button>
-                <button className="btn--clothingSize">M</button>
-                <button className="btn--clothingSize">G</button>
+              {
+                product.sizes.map(size => {
+                  return <button className="btn--clothingSize" key={size.sku}
+                    disabled={!size.available} onClick = {() => changeChosenSize({size: size.size, sku: size.sku})}> 
+                    { size.size }
+                  </button>
+                })
+              }
             </div>
             <button className="btn--cart" onClick={ () => addProductToBag() }>Adicionar à Sacola</button>
         </div>
+
+        { 
+          isSizeChosen === false 
+            ? <div className="productPage__sizeRequired"> É necessário escolher um tamanho </div> 
+            : <div> </div> }
       </section>
     </article>
   )

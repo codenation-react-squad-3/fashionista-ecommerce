@@ -3,14 +3,16 @@ const CART = {
   CART_REMOVE_PRODUCT: 'CART_REMOVE_PRODUCT',
 }
 
-const cartAddProduct = (product) => ({
+const cartAddProduct = (product, size) => ({
   type: CART.CART_ADD_PRODUCT,
-  product
+  product,
+  size
 });
 
-const cartRemoveProduct = (product) => ({
+const cartRemoveProduct = (product, size) => ({
   type: CART.CART_REMOVE_PRODUCT,
-  product
+  product,
+  size
 });
 
 export {cartAddProduct, cartRemoveProduct, CART}
