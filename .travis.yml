@@ -10,3 +10,5 @@ script:
   - yarn test
 on:
   branch: master
+
+  
