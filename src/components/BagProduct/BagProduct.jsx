@@ -12,9 +12,9 @@ const BagProduct = ({product, isSearch}) => {
   return (
     <article className="bagProduct">
       <section className="bagProduct__info">
-        <figure className="bagProduct__photo">
-          <img src={ product.product.image } alt="" />
-          { isSearch ? <span></span> : <button type="button"> Remover item </button> }
+        <figure className="bagProduct__photo" data-testid="bagproduct-photo">
+          <img data-testid="bagproduct-image" src={ product.product.image } alt="" />
+          { isSearch ? <span></span> : <button type="button" data-testid="bagproduct-remove_item_button"> Remover item </button> }
         </figure>
 
         <div>
@@ -22,12 +22,12 @@ const BagProduct = ({product, isSearch}) => {
 
           {
             isSearch 
-              ? <span></span> 
+              ? <span data-testid="bagproduct-empty"></span> 
               : <div> 
-                  <h4>Tam: {product.size}</h4>
+                  <h4 data-testid="bagproduct-size">Tam: {product.size}</h4>
                   <div className="bagProduct__counter">
                     <button type="button" onClick={() => dispatch(cartRemoveProduct(product.product, {size: product.size, sku: product.sku}))} > <FiMinus /> </button>
-                    <p> {product.productCount} </p>
+                    <p data-testid="bagproduct-count"> {product.productCount} </p>
                     <button type="button" onClick={() => dispatch(cartAddProduct(product.product, {size: product.size, sku: product.sku}))}> <FiPlus /> </button>
                   </div>
                 </div>
