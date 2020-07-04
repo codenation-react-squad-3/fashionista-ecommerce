@@ -7,7 +7,7 @@ import './SearchBar.scss'
 const SearchBar = ({productsList}) => {
     const [searchQuery, setSearchQuery] = useState('')
     const [searchProductResult, setSearchProductResult] = useState([])
-    const debouncedTerm = useDebounce(searchQuery, 50)
+    const debouncedTerm = useDebounce(searchQuery, 200)
 
     useEffect(() => {
       const search = () => {
@@ -32,8 +32,9 @@ const SearchBar = ({productsList}) => {
             {
               searchProductResult.length > 0 
               ? searchProductResult.map(product =>{
+                console.log('search',{...product})
                 return (
-                  <BagProduct product={{ ...product}} isSearch={true} key={product.code_color} />
+                  <BagProduct product={{product: product}} isSearch={true} key={product.code_color} />
                 )
               })
                 : <div className="search__result--empty"> 
