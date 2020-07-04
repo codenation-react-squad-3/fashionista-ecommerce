@@ -1,26 +1,38 @@
 import React from "react";
-import jest from "jest";
-import { Provider } from "react-redux";
-import { render, fireEvent, screen } from "../../utils/test-utils";
+
+import { cleanup } from "@testing-library/react";
+import '@testing-library/jest-dom'
+import configureStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+import { render, screen } from "../../utils/test-utils";
+import { products as productsList } from "../../utils/mockProducts";
+
 import ProductsCatalog from "./ProductsCatalog";
 
-const mockProducts = {
+const mockStoreProducts = {
   products: {
     loading: false,
     error: false,
-    productsList: [],
+    productsList: productsList,
   },
 };
-const mockStore = configureStore();
+
+const mockStore = configureStore([thunk])
+const store = mockStore(mockStoreProducts)
 
 beforeEach(() => {
   fetch.resetMocks();
 });
 
-test("Lists correctly the Products", () => {
-  fetch.mockResponseOnce(JSON.stringify(mockProducts));
+afterEach(cleanup);
 
-  const { container } = render(<ProductsCatalog />, {
-    initialState: mockProducts,
+test("Renders correctly number of Products", () => {
+  fetch.mockResponseOnce(JSON.stringify(mockStoreProducts));
+
+  render(<ProductsCatalog />, {
+    store: store
   });
+
+  expect(screen.getByTestId("products-catalog")).toHaveClass('productsCatalog');
+  expect(screen.getByTestId("products-list").childElementCount).toBe(2);
 });
