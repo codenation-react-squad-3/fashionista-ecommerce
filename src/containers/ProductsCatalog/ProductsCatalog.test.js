@@ -1,10 +1,6 @@
 import React from "react";
-
-import { cleanup } from "@testing-library/react";
 import '@testing-library/jest-dom'
-import configureStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { render, screen } from "../../utils/test-utils";
+import { render, screen, cleanup, mockStore } from "../../utils/test-utils";
 import { products as productsList } from "../../utils/mockProducts";
 
 import ProductsCatalog from "./ProductsCatalog";
@@ -17,7 +13,6 @@ const mockStoreProducts = {
   },
 };
 
-const mockStore = configureStore([thunk])
 const store = mockStore(mockStoreProducts)
 
 beforeEach(() => {

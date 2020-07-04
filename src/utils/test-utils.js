@@ -2,6 +2,8 @@
 import React from "react";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
+import configureStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
 import { BrowserRouter as Router } from "react-router-dom";
 import { render as rtlRender } from "@testing-library/react";
 
@@ -25,7 +27,9 @@ function render(
   return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
 }
 
+const mockStore = configureStore([thunk])
+
 // re-export everything
 export * from "@testing-library/react";
 // override render method
-export { render };
+export { render, mockStore };

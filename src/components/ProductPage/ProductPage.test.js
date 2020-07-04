@@ -1,8 +1,5 @@
 import React from "react";
-
-import { render, screen, cleanup } from "../../utils/test-utils";
-import configureStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
+import { render, screen, cleanup, mockStore } from "../../utils/test-utils";
 import "@testing-library/jest-dom";
 
 import ProductPage from "./ProductPage";
@@ -29,16 +26,31 @@ const product = {
   ],
 };
 
-const mockStore = configureStore([thunk])
-const store = mockStore({})
+const store = mockStore({});
+
+beforeEach(() => {
+  fetch.resetMocks();
+});
+
+afterEach(cleanup);
 
 it("Renders the correct information on Products", () => {
   render(<ProductPage store={store} product={product} />);
 
-  expect(screen.getByTestId('product-photo').firstElementChild.nodeName).toBe('IMG')
-  expect(screen.getByTestId('product-photo').firstElementChild.getAttribute('src')).toBe('https://d3l7rqep7l31az.cloudfront.net/images/products/20002581_614_catalog_1.jpg?1459536611')
-  expect(screen.getByTestId("product-name")).toHaveTextContent("BATA DECOTE FLUID");
+  expect(screen.getByTestId("product-photo").firstElementChild.nodeName).toBe(
+    "IMG"
+  );
+  expect(
+    screen.getByTestId("product-photo").firstElementChild.getAttribute("src")
+  ).toBe(
+    "https://d3l7rqep7l31az.cloudfront.net/images/products/20002581_614_catalog_1.jpg?1459536611"
+  );
+  expect(screen.getByTestId("product-name")).toHaveTextContent(
+    "BATA DECOTE FLUID"
+  );
   expect(screen.getByTestId("product-price")).toHaveTextContent("R$ 149,90");
-  expect(screen.getByTestId("product-installments")).toHaveTextContent("3x R$ 49,97");
-  expect(screen.getByTestId("product-sizes").childElementCount).toBe(5)
+  expect(screen.getByTestId("product-installments")).toHaveTextContent(
+    "3x R$ 49,97"
+  );
+  expect(screen.getByTestId("product-sizes").childElementCount).toBe(5);
 });
