@@ -13,7 +13,11 @@ const BagProduct = ({product, isSearch}) => {
     <article className="bagProduct">
       <section className="bagProduct__info">
         <figure className="bagProduct__photo">
-          <img src={ product.product.image } alt="" />
+          {
+            product.product.image
+              ? <img src={product.product.image} alt=""/>
+              : <img src="https://via.placeholder.com/470x594/FFFFFF/?text=Imagem+Indisponível" alt=""/>
+          }
           { isSearch ? <span></span> : <button type="button" onClick={() => dispatch(cartRemoveAllProduct(product.product, product.sku))}> Remover item </button> }
         </figure>
 
