@@ -7,8 +7,10 @@ const ProductPage = (product) => {
   const dispatch = useDispatch();
   const [isSizeChosen, setIsSizeChosen] = useState();
   const [chosenSize, setChosenSize] = useState({size: '', sku: ''});
+  const [clickedButtonIndex, setClickedButtonIndex] = useState();
 
-  const changeChosenSize = (sizeObject) => {
+  const changeChosenSize = (sizeObject, index) => {
+    setClickedButtonIndex(index);
     setIsSizeChosen(true);
     setChosenSize({...sizeObject});
   }
@@ -22,7 +24,12 @@ const ProductPage = (product) => {
   return (
     <article className="productPage">
       <figure className="productPage__photo">
-        <img src={ product.image } alt=""/>
+        {
+          product.image
+            ? <img src={product.image} alt=""/>
+            : <img src="https://via.placeholder.com/470x594/FFFFFF/?text=Imagem+Indisponível" alt=""/>
+        }
+      
       </figure>
       <section className="productPage__productInfo">
         <h3 className="productPage__productTitle"> { product.name } </h3>
@@ -33,9 +40,11 @@ const ProductPage = (product) => {
             <p className="productPage__chooseSize">Escolha o tamanho</p>
             <div className="productPage__sizes">
               {
-                product.sizes.map(size => {
-                  return <button className="btn--clothingSize" key={size.sku}
-                    disabled={!size.available} onClick = {() => changeChosenSize({size: size.size, sku: size.sku})}> 
+                product.sizes.map((size, index) => {
+                  return <button className = { index === clickedButtonIndex ? 
+                    "btn--clothingSize btn--clothingSize__selected" :  "btn--clothingSize btn--clothingSize__not-selected"} 
+                    key={size.sku}
+                    disabled={!size.available} onClick = {() => changeChosenSize({size: size.size, sku: size.sku}, index)}> 
                     { size.size }
                   </button>
                 })
