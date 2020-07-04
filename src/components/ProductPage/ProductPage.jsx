@@ -29,7 +29,6 @@ const ProductPage = (product) => {
             ? <img src={product.image} alt=""/>
             : <img src="https://via.placeholder.com/470x594/FFFFFF/?text=Imagem+Indisponível" alt=""/>
         }
-      
       </figure>
       <section className="productPage__productInfo">
         <h3 className="productPage__productTitle"> { product.name } </h3>
