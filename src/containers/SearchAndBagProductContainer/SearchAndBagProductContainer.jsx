@@ -8,17 +8,8 @@ import BagProduct from '../../components/BagProduct/BagProduct';
 const SearchAndBagProductContainer = ({ isSearch }) => {
   const { cartList } = useSelector(state => state.cartProducts);
   const { productsList } = useSelector(state => state.products);
-  const [cartListUpdated, setCartListUpdated] = useState([]);
   const { cartTotalPrice } = useSelector(state => state.cartProducts);
   const { cartCount } = useSelector(state => state.cartProducts);
-
-  useEffect(() => {
-    const updateCartList = () => {
-      setCartListUpdated([...cartList]);
-    }
-
-    updateCartList();
-  }, [cartList]);
 
   return (
     <div className="searchAndBagProduct__container">
@@ -29,9 +20,9 @@ const SearchAndBagProductContainer = ({ isSearch }) => {
           : <React.Fragment>
             <div>
               {
-                cartListUpdated.length > 0
+                cartList.length
                   ?
-                  cartListUpdated.map((product, index) => {
+                  cartList.map((product, index) => {
                     return (
                       <BagProduct product={{ ...product }} isSearch={false} key={index} />
                     )
