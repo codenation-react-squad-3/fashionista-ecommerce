@@ -8,8 +8,8 @@ import ProductPage from '../../components/ProductPage/ProductPage'
 const ProductPageContainer = () => {
   const {id} = useParams();
   const {productsList} = useSelector(state => state.products);
-
-  const productInfo = productsList.filter(item => item.code_color === id)[0];
+  const productsListLS = JSON.parse(localStorage.getItem('products')).productsList || productsList
+  const productInfo = productsListLS.filter(item => item.code_color === id)[0];
 
   return (
     <div className="productPage__container">

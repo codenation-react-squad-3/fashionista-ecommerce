@@ -8,9 +8,12 @@ const initialState = {
 const products = (state = initialState, action) => {
   switch(action.type){  
     case PRODUCT.GET_PRODUCTS_DONE:
+      const products = [...action.products.filter(product => product.id !== 'NaN')]
+      localStorage.setItem('products', JSON.stringify({productsList: products}))
+
       return {
         ...state, 
-        productsList: [...action.products.filter(product => product.id !== 'NaN')],
+        productsList: products,
         loading: action.loading
       }
 
