@@ -13,7 +13,7 @@ function render(
   ui,
   {
     initialState,
-    store = createStore(reducer, initialState),
+    store = mockStore({}),
     ...renderOptions
   } = {}
 ) {

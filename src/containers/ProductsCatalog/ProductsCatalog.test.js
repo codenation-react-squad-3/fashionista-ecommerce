@@ -21,7 +21,7 @@ beforeEach(() => {
 
 afterEach(cleanup);
 
-test("Renders correctly number of Products", () => {
+test("Renders number of Products", () => {
   fetch.mockResponseOnce(JSON.stringify(mockStoreProducts));
 
   render(<ProductsCatalog />, {
