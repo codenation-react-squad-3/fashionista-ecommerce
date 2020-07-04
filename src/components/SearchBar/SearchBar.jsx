@@ -32,7 +32,6 @@ const SearchBar = ({productsList}) => {
             {
               searchProductResult.length > 0 
               ? searchProductResult.map(product =>{
-                console.log('search',{...product})
                 return (
                   <BagProduct product={{product: product}} isSearch={true} key={product.code_color} />
                 )
