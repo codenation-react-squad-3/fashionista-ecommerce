@@ -21,7 +21,7 @@ const fetchError = () => ({
 
 const fetchProductsService = () => async dispatch => {
    dispatch(fetchStart());
-   await fetch('https://undefined.netlify.app/api/catalog')
+   await fetch('https://5e9935925eabe7001681c856.mockapi.io/api/v1/catalog')
       .then(res => res.json())
       .then(res => dispatch(fetchDone(res)))
       .catch(() => dispatch(fetchError()))
