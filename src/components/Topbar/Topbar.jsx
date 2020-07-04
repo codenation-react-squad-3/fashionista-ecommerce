@@ -25,7 +25,7 @@ const Topbar = () => {
             <button type="button" className="topbar__icon" onClick={() => setIsSearch(true)}> <FiSearch /> </button>
             <button type="button" className="topbar__icon" onClick={() => setIsCart(true)}>
               <FiShoppingBag />
-              <div className="topbar__icon-counter"> {cartCount} </div>
+              <div className="topbar__icon-counter" data-testid="topbar-cart_count"> {cartCount} </div>
             </button>
           </div>
         </div>
