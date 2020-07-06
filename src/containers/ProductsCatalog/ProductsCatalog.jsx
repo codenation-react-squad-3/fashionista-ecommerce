@@ -28,7 +28,7 @@ const ProductsCatalog = () => {
 	}
   	else if(loading){
     	return (
-				<div className="loading">
+				<div className="loading" data-testid="loading">
 					<img src={loadingGif} alt="loading..." />
 				</div>
     	)

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import "./PageNotFound.scss";
 const PageNotFound = () => {
   return (
-    <article className="pageNotFound">
+    <article className="pageNotFound" data-testid="pageNotFound">
       <section className="pageNotFound__bigText">
         404
       </section>

@@ -1,6 +1,5 @@
 // test-utils.js
 import React from "react";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
