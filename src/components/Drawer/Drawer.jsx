@@ -7,7 +7,7 @@ import './Drawer.scss'
 const Drawer = ({ isShowing, hide, title, children }) => {
 
 	return (
-		<div className={isShowing ? 'drawer' : ''}>
+		<div className={isShowing ? 'drawer' : ''} data-testid="drawer">
 			<div className={`drawer__container ${isShowing && "drawer__container--is-open"}`}>
 				<div className="drawer__header">
 					<button className="close__btn" onClick={() => hide(false)}>

@@ -6,7 +6,6 @@ import {
   cleanup,
   fireEvent,
   waitFor,
-  waitForDomChange,
 } from "../../utils/test-utils";
 import { products as productsList } from "../../utils/mockProducts";
 
