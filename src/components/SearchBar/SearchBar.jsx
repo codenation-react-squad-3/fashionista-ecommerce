@@ -28,7 +28,7 @@ const SearchBar = ({productsList}) => {
             onChange={ text => setSearchQuery(text.target.value) }></input>
         </div>
 
-        <div className="search__content">
+        <div className="search__content" data-testid="search_content">
             {
               searchProductResult.length > 0 
               ? searchProductResult.map(product =>{

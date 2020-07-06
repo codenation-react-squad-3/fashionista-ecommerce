@@ -10,7 +10,7 @@ const BagProduct = ({product, isSearch}) => {
   const dispatch = useDispatch();
   
   return (
-    <article className="bagProduct">
+    <article className="bagProduct" data-testid="bagproduct">
       <section className="bagProduct__info">
         <figure className="bagProduct__photo" data-testid="bagproduct-photo">
           {
