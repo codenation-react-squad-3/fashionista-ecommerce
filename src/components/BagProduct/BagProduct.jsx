@@ -4,17 +4,21 @@ import { FiPlus, FiMinus } from 'react-icons/fi';
 
 import './BagProduct.scss'
 
-import { cartAddProduct, cartRemoveProduct } from '../../store/actions/cartActions'
+import { cartAddProduct, cartRemoveProduct, cartRemoveAllProduct } from '../../store/actions/cartActions'
 
 const BagProduct = ({product, isSearch}) => {
   const dispatch = useDispatch();
-
+  
   return (
     <article className="bagProduct">
       <section className="bagProduct__info">
         <figure className="bagProduct__photo" data-testid="bagproduct-photo">
-          <img data-testid="bagproduct-image" src={ product.product.image } alt="" />
-          { isSearch ? <span></span> : <button type="button" data-testid="bagproduct-remove_item_button"> Remover item </button> }
+          {
+            product.product.image
+              ? <img src={product.product.image} alt="" data-testid="bagproduct-image"/>
+              : <img src="https://via.placeholder.com/470x594/FFFFFF/?text=Imagem+Indisponível" alt=""/>
+          }
+          { isSearch ? <span></span> : <button type="button" onClick={() => dispatch(cartRemoveAllProduct(product.product, product.sku))} data-testid="bagproduct-remove_item_button"> Remover item </button> }
         </figure>
 
         <div>

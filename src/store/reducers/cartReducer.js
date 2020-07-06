@@ -64,6 +64,18 @@ const cartProducts = (state = initialState, action) => {
         cartTotalPrice: state.cartTotalPrice - parseFloat(action.product.actual_price.split(' ')[1].replace(',', '.'))
       }
 
+    case CART.CART_REMOVE_ALL_PRODUCT:
+      const productQuantity = state.cartList.filter(item => item.sku === action.size)[0].productCount
+      const removedAllCartList = state.cartList.filter(item => item.sku != action.size)
+      const productsTotalPrice = parseFloat(action.product.actual_price.split(' ')[1].replace(',', '.')) * productQuantity
+
+      return {
+        ...state,
+        cartList: [...removedAllCartList],
+        cartCount: state.cartCount - productQuantity,
+        cartTotalPrice: state.cartTotalPrice - productsTotalPrice
+      }
+
     default:
       return state;
   }

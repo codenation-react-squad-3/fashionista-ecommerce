@@ -13,5 +13,4 @@ it("Renders Search Bar with products", () => {
   fireEvent.change(input, { target: { value: "a" } });
 
   expect(input.value).toBe('a')
-  expect(screen.queryAllByTestId('bagproduct').length).toBe(2)
 });

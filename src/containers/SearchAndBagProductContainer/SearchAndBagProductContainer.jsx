@@ -8,17 +8,8 @@ import BagProduct from "../../components/BagProduct/BagProduct";
 const SearchAndBagProductContainer = ({ isSearch }) => {
   const { cartList } = useSelector((state) => state.cartProducts);
   const { productsList } = useSelector((state) => state.products);
-  const [cartListUpdated, setCartListUpdated] = useState([]);
   const { cartTotalPrice } = useSelector((state) => state.cartProducts);
   const { cartCount } = useSelector((state) => state.cartProducts);
-
-  useEffect(() => {
-    const updateCartList = () => {
-      setCartListUpdated([...cartList]);
-    };
-
-    updateCartList();
-  }, [cartList]);
 
   return (
     <div className="searchAndBagProduct__container">
@@ -27,8 +18,8 @@ const SearchAndBagProductContainer = ({ isSearch }) => {
       ) : (
         <>
           <div>
-            {cartListUpdated.length > 0 ? (
-              cartListUpdated.map((product, index) => {
+            {cartList.length ? (
+              cartList.map((product, index) => {
                 return (
                   <BagProduct
                     product={{ ...product }}
@@ -47,7 +38,9 @@ const SearchAndBagProductContainer = ({ isSearch }) => {
           <div className="total-price__tag">
             <span className="total-price__text">Subtotal - </span>
             {cartCount === 0 ? (
-              <span className="total-price__text" data-testid="total-price">R$ 0,00</span>
+              <span className="total-price__text" data-testid="total-price">
+                R$ 0,00
+              </span>
             ) : (
               <span className="total-price__text" data-testid="total-price">
                 {new Intl.NumberFormat("pt-BR", {
