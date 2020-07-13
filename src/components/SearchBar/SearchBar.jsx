@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import useDebounce from '../../utils/useDebounce';
 import BagProduct from '../BagProduct/BagProduct'
 import {useSelector} from 'react-redux'
+import {Link} from 'react-router-dom';
+
 import './SearchBar.scss'
 
 const SearchBar = ({productsList}) => {
@@ -33,7 +35,9 @@ const SearchBar = ({productsList}) => {
               searchProductResult.length > 0 
               ? searchProductResult.map(product =>{
                 return (
-                  <BagProduct product={{product: product}} isSearch={true} key={product.code_color} />
+                  <Link to={'/product/' + product.code_color}>
+                    <BagProduct product={{product: product}} isSearch={true} key={product.code_color} />
+                  </Link>
                 )
               })
                 : <div className="search__result--empty"> 
