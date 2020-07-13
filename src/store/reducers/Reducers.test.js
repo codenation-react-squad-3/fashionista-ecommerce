@@ -326,14 +326,12 @@ describe("Reducers state change", () => {
       expect(currentState.cartProducts.cartCount).toBe(2);
       expect(currentState.cartProducts.cartTotalPrice).toBe(199.9 * 2);
 
+      console.log('Current State: ', currentState)
+
       currentState = reducer(currentState, {
         type: CART.CART_REMOVE_ALL_PRODUCT,
         product,
-        size: {
-          available: false,
-          size: "PP",
-          sku: "5807_343_0_PP",
-        },
+        size: "5807_343_0_PP",
       });
 
       expect(currentState.cartProducts.cartList).toHaveLength(0);
