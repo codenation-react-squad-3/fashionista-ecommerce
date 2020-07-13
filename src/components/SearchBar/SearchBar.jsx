@@ -35,7 +35,9 @@ const SearchBar = ({productsList}) => {
               searchProductResult.length > 0 
               ? searchProductResult.map(product =>{
                 return (
-                  <BagProduct product={{product: product}} isSearch={true} key={product.code_color} />
+                  <Link to={'/product/' + product.code_color}>
+                    <BagProduct product={{product: product}} isSearch={true} key={product.code_color} />
+                  </Link>
                 )
               })
                 : <div className="search__result--empty"> 
