@@ -28,17 +28,17 @@ const ProductsCatalog = () => {
 	}
   	else if(loading){
     	return (
-				<div className="loading">
+				<div className="loading" data-testid="loading">
 					<img src={loadingGif} alt="loading..." />
 				</div>
     	)
   	}
   	return (
-			<section className="productsCatalog">
+			<section className="productsCatalog" data-testid="products-catalog">
 				<div className="productsCatalog__container">
-				<div className="productsCatalog__counter"> 22 itens </div>
+				<div className="productsCatalog__counter"> {productsList.length} items </div>
 
-				<div className="product__grid">
+				<div className="product__grid" data-testid="products-list">
 					{
 						productsList.map(prod =>{
 							return (

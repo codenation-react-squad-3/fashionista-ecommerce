@@ -22,13 +22,13 @@ const SearchBar = ({productsList}) => {
     }, [debouncedTerm])
 
     return (
-      <div className="search__container">
+      <div className="search__container" data-testid="searchbar">
         <div className="search__area">
-          <input type="text" className="search__input" placeholder="Buscar por produto..." 
+          <input data-testid="searchbar-input" type="text" className="search__input" placeholder="Buscar por produto..." 
             onChange={ text => setSearchQuery(text.target.value) }></input>
         </div>
 
-        <div className="search__content">
+        <div className="search__content" data-testid="search_content">
             {
               searchProductResult.length > 0 
               ? searchProductResult.map(product =>{

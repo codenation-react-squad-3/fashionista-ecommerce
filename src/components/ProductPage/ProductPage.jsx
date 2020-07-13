@@ -3,7 +3,8 @@ import { useDispatch} from 'react-redux'
 
 import { cartAddProduct } from '../../store/actions/cartActions' 
 import './ProductPage.scss'
-const ProductPage = (product) => {
+
+const ProductPage = ({product}) => {
   const dispatch = useDispatch();
   const [isSizeChosen, setIsSizeChosen] = useState();
   const [chosenSize, setChosenSize] = useState({size: '', sku: ''});
@@ -23,7 +24,7 @@ const ProductPage = (product) => {
 
   return (
     <article className="productPage">
-      <figure className="productPage__photo">
+      <figure className="productPage__photo" data-testid="product-photo">
         {
           product.image
             ? <img src={product.image} alt=""/>
@@ -31,13 +32,13 @@ const ProductPage = (product) => {
         }
       </figure>
       <section className="productPage__productInfo">
-        <h3 className="productPage__productTitle"> { product.name } </h3>
-        <p className="productPage__price">{product.regular_price}
-            <span className="productPage__priceParcelas">{product.installments}</span>
+        <h3 className="productPage__productTitle" data-testid="product-name"> { product.name } </h3>
+        <p className="productPage__price" data-testid="product-price">{product.regular_price}
+            <span className="productPage__priceParcelas" data-testid="product-installments">{product.installments}</span>
         </p>
         <div>
             <p className="productPage__chooseSize">Escolha o tamanho</p>
-            <div className="productPage__sizes">
+            <div className="productPage__sizes" data-testid="product-sizes">
               {
                 product.sizes.map((size, index) => {
                   return <button className = { index === clickedButtonIndex ? 

@@ -8,15 +8,15 @@ const HomeProductCard = (props) => {
   let productRegularPrice;
 
   productImage = props.image
-    ? <img src={props.image} alt="" className="product__image"/>
+    ? <img src={props.image} alt="" className="product__image" data-testid="productcard-image"/>
     : <img src="https://via.placeholder.com/470x594/FFFFFF/?text=Imagem+Indisponível" alt="" className="product__image"/>
 
     productRegularPrice = props.discount_percentage
-      ? <span className="product__price product__price--regular">{props.regular_price}</span>
+      ? <span className="product__price product__price--regular" data-testid="productcard-regular_price">{props.regular_price}</span>
       : <span></span>
       
     productDiscount = props.discount_percentage
-      ? <span className="product__discount">-{props.discount_percentage}</span>
+      ? <span className="product__discount" data-testid="productcard-discount_percentage">-{props.discount_percentage}</span>
       : <span></span>  
 
   return (
@@ -27,9 +27,9 @@ const HomeProductCard = (props) => {
           {productDiscount}
         </div>
         <div>
-          <h3 className="product__title"> {props.name} </h3>
+          <h3 className="product__title" data-testid="productcard-name"> {props.name} </h3>
           {productRegularPrice}
-          <span className="product__price product__price--actual"> {props.actual_price} </span>
+          <span className="product__price product__price--actual" data-testid="productcard-actual_price"> {props.actual_price} </span>
         </div>
       </Link>
     </div>

@@ -10,15 +10,15 @@ const BagProduct = ({product, isSearch}) => {
   const dispatch = useDispatch();
   
   return (
-    <article className="bagProduct">
+    <article className="bagProduct" data-testid="bagproduct">
       <section className="bagProduct__info">
-        <figure className="bagProduct__photo">
+        <figure className="bagProduct__photo" data-testid="bagproduct-photo">
           {
             product.product.image
-              ? <img src={product.product.image} alt=""/>
+              ? <img src={product.product.image} alt="" data-testid="bagproduct-image"/>
               : <img src="https://via.placeholder.com/470x594/FFFFFF/?text=Imagem+Indisponível" alt=""/>
           }
-          { isSearch ? <span></span> : <button type="button" onClick={() => dispatch(cartRemoveAllProduct(product.product, product.sku))}> Remover item </button> }
+          { isSearch ? <span></span> : <button type="button" onClick={() => dispatch(cartRemoveAllProduct(product.product, product.sku))} data-testid="bagproduct-remove_item_button"> Remover item </button> }
         </figure>
 
         <div>
@@ -26,12 +26,12 @@ const BagProduct = ({product, isSearch}) => {
 
           {
             isSearch 
-              ? <span></span> 
+              ? <span data-testid="bagproduct-empty"></span> 
               : <div> 
-                  <h4>Tam: {product.size}</h4>
+                  <h4 data-testid="bagproduct-size">Tam: {product.size}</h4>
                   <div className="bagProduct__counter">
                     <button type="button" onClick={() => dispatch(cartRemoveProduct(product.product, {size: product.size, sku: product.sku}))} > <FiMinus /> </button>
-                    <p> {product.productCount} </p>
+                    <p data-testid="bagproduct-count"> {product.productCount} </p>
                     <button type="button" onClick={() => dispatch(cartAddProduct(product.product, {size: product.size, sku: product.sku}))}> <FiPlus /> </button>
                   </div>
                 </div>
